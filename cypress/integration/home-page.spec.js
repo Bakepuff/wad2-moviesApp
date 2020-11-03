@@ -53,6 +53,11 @@ describe("Home Page ", () => {
               .should("have.text", matchingMovies[index].title);
             })
           })
+          it("should not have movie with 'xyz'", () => {
+            const searchString = "xyz";
+            filterByTitle(movies, searchString)==0;
+            
+          })
         })
         describe("By movie genre" ,() => {
           // More later
