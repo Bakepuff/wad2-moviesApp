@@ -6,6 +6,10 @@ stages:
   - install
   - build
   - test
+stages:
+   - install
+   - build
+   - test
 
 # Jobs 
 
@@ -21,3 +25,11 @@ bundle_app:
   stage: build
   script:
     - npm run build
+e2etest:    
+    stage: test
+    before_script:
+      - npm install -g http-server
+      - npm install cypress
+    script:
+       # start the server in the background
+      - npm run start:ci    
