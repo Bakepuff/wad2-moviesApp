@@ -6,10 +6,7 @@ stages:
   - install
   - build
   - test
-stages:
-  - install
-  - build
-  - test
+
 
 # Jobs 
 
@@ -25,6 +22,10 @@ bundle_app:
   stage: build
   script:
     - npm run build
+  artifacts:
+    paths:
+      - build/
+
 e2etest:    
     stage: test
     before_script:
