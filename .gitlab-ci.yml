@@ -7,9 +7,9 @@ stages:
   - build
   - test
 stages:
-   - install
-   - build
-   - test
+  - install
+  - build
+  - test
 
 # Jobs 
 
