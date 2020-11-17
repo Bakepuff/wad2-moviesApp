@@ -49,7 +49,7 @@ exercise_job:
   only:
     - master
   script:
-    - echo "build exercise_job on master"
+    - echo "build exercise_job on master works"
 
 e2etest:    
     stage: test
