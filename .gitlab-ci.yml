@@ -23,7 +23,11 @@ cache:
 # END NEW
 
 # Jobs 
-
+install_dependencies:
+  stage: install
+  script:
+    - npm ci
+  
 
 bundle_app:
   stage: build
