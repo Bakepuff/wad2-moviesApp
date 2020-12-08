@@ -1,0 +1,26 @@
+.wrap1{
+    margin-right:  16px;
+    margin-top: 16px;
+}
+
+.wrap1 img{
+    height: 400px;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.title{
+    font-weight: bolder;
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+.info li{
+    list-style-type: none;
+}
+
+.info .key{
+    font-weight: bolder;
+    margin-top: 12px;
+}

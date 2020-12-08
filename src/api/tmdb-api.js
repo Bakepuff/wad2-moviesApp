@@ -50,3 +50,10 @@ export const getMovieCredits = (movieId) => {
     .then(res => res.json())
     .then(json => json.cast);
 };
+
+export const getCreditDetail = (creditId) => {
+  return fetch(
+    `https://api.themoviedb.org/3/credit/${creditId}?api_key=${process.env.REACT_APP_TMDB_KEY}`
+  )
+    .then(res => res.json())
+};
