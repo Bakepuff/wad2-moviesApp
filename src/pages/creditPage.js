@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import { Link, Route, withRouter } from "react-router-dom";
 import {getCreditDetail} from '../api/tmdb-api'
 import CreditInfo from "../components/creditInfo";
+import CreditKnown from "../components/creditKnown";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const CreditPage = props => {
@@ -23,8 +24,13 @@ const CreditPage = props => {
         </div>
       </div>
     {credit ? (
+      <div style={{display:'flex',flexDirection:"row"}}>
         <div style={{width:300}}>
           <CreditInfo credit={credit}/>
+        </div>
+        <div style={{flex:1}}>
+        <CreditKnown credit={credit}/>
+        </div>
         </div>
       
     ) : (

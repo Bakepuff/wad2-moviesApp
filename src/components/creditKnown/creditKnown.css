@@ -1,0 +1,35 @@
+.wrap2 .name{
+    font-weight: bolder;
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+.wrap2 .title{
+    font-weight: bolder;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.known{
+    margin-bottom: 10px;
+}
+
+
+.card1{
+    border-radius: 4px;
+    width: 150px;
+    height: 250px;
+    background: white;
+    overflow: hidden;
+    display: inline-block;
+    margin-right: 12px;
+}
+.card1 img{
+    height: 200px;
+    width: 100%;
+}
+.card1 .name{
+    font-weight: bolder;
+    font-size: 16px;
+    text-align: center;
+}
