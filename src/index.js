@@ -35,7 +35,6 @@ const App = () => {
           <Route exact path="/upcoming/watchlist" component={WatchlistPage} />
           <Route path="/movies/:id" component={MoviePage} />
           <Route path="/" component={HomePage} />
-          
           <Redirect from="*" to="/" />
           </Switch>
             </GenresContextProvider>    {/* NEW */}
