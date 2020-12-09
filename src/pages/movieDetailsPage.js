@@ -6,6 +6,8 @@ import MovieReviews from "../components/movieReviews";
 import useMovie from "../hooks/useMovie";
 import MovieCasts from "../components/movieCasts"; 
 import {getMovieCredits} from '../api/tmdb-api'
+import SimilarMovies from "../components/similarMovies"; 
+
 
 const MoviePage = props => {
   const { id } = props.match.params;
@@ -14,7 +16,7 @@ const MoviePage = props => {
 
   useEffect(()=>{
     getMovieCredits(id).then(setCasts)
-  },[])
+  },[id])
 
   return (
     <>
@@ -24,6 +26,7 @@ const MoviePage = props => {
           <MovieDetails movie={movie} />
         </PageTemplate>
         <MovieCasts casts={casts}/>
+        <SimilarMovies movieId={id}/>
         <div className="row">
           <div className="col-12 ">
             {!props.history.location.pathname.endsWith("/reviews") ? (

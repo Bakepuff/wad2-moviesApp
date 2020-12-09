@@ -57,3 +57,11 @@ export const getCreditDetail = (creditId) => {
   )
     .then(res => res.json())
 };
+
+export const getSimilarMovies = (movieId) => {
+  return fetch(
+    `https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${process.env.REACT_APP_TMDB_KEY}`
+  )
+    .then(res => res.json())
+    .then(json => json.results || [])
+};
