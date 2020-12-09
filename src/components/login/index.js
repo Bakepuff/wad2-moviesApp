@@ -1,13 +1,14 @@
-import React, { useState} from 'react';
+import React, { useState,useContext} from 'react';
 import {message, Input, Button} from 'antd';
 import  './login.css';
 import {UserOutlined, KeyOutlined} from '@ant-design/icons';
 import {login, newSession, getAccountDetails} from '../../api/tmdb-api'
+import {MoviesContext} from "../../contexts/moviesContext";
 
 
 
 export default function ({history}) {
-  
+  const context = useContext(MoviesContext);
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
   const doLogin = () => {
@@ -19,6 +20,7 @@ export default function ({history}) {
       if (res.success) {
         newSession(res.request_token).then(sessionId => {
           getAccountDetails(sessionId).then(user => {
+            context.saveUser({...user, sessionId})
             history.replace('/movies/profile')
           })
         })

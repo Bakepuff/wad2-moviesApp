@@ -5,6 +5,11 @@ export const MoviesContext = createContext(null);
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case "save-user":
+      return {
+        ...state,
+        user:action.payload.user
+      };
     case "add-favorite":
       return {
         movies: state.movies.map((m) =>
@@ -57,6 +62,9 @@ const MoviesContextProvider = (props) => {
     const index = state.upcoming.map((m) => m.id).indexOf(movieId);
     dispatch({ type: "add-watchlist", payload: { movie: state.upcoming[index] } });
   };
+  const saveUser = (user) => {
+    dispatch({type: "save-user", payload: {user}});
+  };
 
   useEffect(() => {
     getMovies().then((movies) => {
@@ -81,12 +89,14 @@ const MoviesContextProvider = (props) => {
   return (
     <MoviesContext.Provider
       value={{
+        user: state.user,
         movies: state.movies,
         upcoming: state.upcoming,
         top_rated: state.top_rated,
         addToFavorites: addToFavorites,
         addReview: addReview,
-        addToWatchlist: addToWatchlist
+        addToWatchlist: addToWatchlist,
+        saveUser: saveUser,
       }}
     >
       {props.children}
