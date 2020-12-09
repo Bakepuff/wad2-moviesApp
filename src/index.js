@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom"
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import HomePage from "./pages/homePage";
 import UpcomingMoviePage from "./pages/upcomingMoviePage";
-
+import LoginPage from './pages/loginPage'
 import MoviePage from './pages/movieDetailsPage'
 import FavoriteMoviesPage from './pages/favoritesMoviesPage'// NEW
 import WatchlistPage from './pages/WatchlistPage'  
@@ -17,6 +17,7 @@ import Top_ratedMoviePage from "./pages/Top_ratedMoviePage";
 import ProfilePage from "./pages/profilePage";
 import CreditPage from './pages/creditPage'
 
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -26,6 +27,7 @@ const App = () => {
           <MoviesContextProvider>
             <GenresContextProvider>    {/* NEW */}
               <Switch>   
+          <Route path="/login" component={LoginPage}/>
           <Route exact path="/reviews/form" component={AddMovieReviewPage} />
           <Route path="/reviews/:id" component={MovieReviewPage} />
           <Route path="/movies/upcoming" component={UpcomingMoviePage} />
