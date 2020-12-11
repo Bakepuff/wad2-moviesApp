@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { Link, Route, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import {getCreditDetail} from '../api/tmdb-api'
 import CreditInfo from "../components/creditInfo";
 import CreditKnown from "../components/creditKnown";
@@ -11,7 +11,7 @@ const CreditPage = props => {
 
   useEffect(()=>{
     getCreditDetail(id).then(setCredit)
-  },[])
+  },[id])
   
   return (
     <>
