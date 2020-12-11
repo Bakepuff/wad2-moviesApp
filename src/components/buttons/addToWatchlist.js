@@ -1,22 +1,22 @@
 import React, { useContext } from "react";
 import {MoviesContext} from "../../contexts/moviesContext";
 
-const AddToWatchButton = ({ movie }) => {
+const AddToWatchlistButton = ({ movie }) => {
   const context = useContext(MoviesContext);
-  const handleAddToWatch = e => {
+  const handleAddToWatchlist = e => {
     e.preventDefault();
-    context.addToWatch(movie.id);
+    context.addToWatchlist(movie.id);
   };
 
   return (
     <button
       type="button"
       className="btn w-100 btn-primary"
-      onClick={handleAddToWatch}
+      onClick={handleAddToWatchlist}
     >
       Add to Watch List
     </button>
   );
 };
 
-export default AddToWatchButton;
+export default AddToWatchlistButton;

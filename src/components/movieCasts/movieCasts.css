@@ -1,0 +1,32 @@
+.title{
+  font-weight: bold;
+  font-size: 18px;
+  margin: 8px 0;
+}
+.wrap{
+  overflow-x: auto;
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+
+.casts{
+  border-radius: 4px;
+  width: 140px;
+  height: 270px;
+  background: white;
+  overflow: hidden;
+  display: inline-block;
+  margin-right: 12px;
+  cursor: pointer;
+}
+.casts img{
+  height: 200px;
+  width: 100%;
+}
+.casts .name{
+ font-weight: bolder;
+  margin: 8px 8px 4px;
+}
+.casts .character{
+ margin-left: 8px;
+}

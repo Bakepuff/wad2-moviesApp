@@ -1,0 +1,41 @@
+.wrap3 {
+    height: calc(100vh - 130px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginCard {
+    width: 450px;
+    padding: 40px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 0 10px 0 #343a40;
+}
+
+.loginCard .logo {
+    color: #343a40;
+    font-weight: bold;
+    font-size: 70px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.loginCard .input {
+    margin-bottom: 50px;
+}
+
+.loginCard button {
+    width: 250px;
+    margin: 0 auto;
+    display: block;
+}
+
+.loginCard :global .ant-btn-primary {
+    background: #343a40;
+    border-color: #343a40;
+}
+
+.loginCard :global .ant-input-affix-wrapper:hover {
+    border-color: #343a40;
+}
