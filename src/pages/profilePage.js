@@ -20,21 +20,21 @@ const ProfilePage = props => {
 
   return (
     <>
-      <Tabs defaultActiveKey={'Favorite'} tabBarExtraContent={{
+      <Tabs defaultActiveKey={'Favorite'}  tabBarExtraContent={{
         left: <ProfileInfo user={user}/>
       }}>
-        <Tabs.TabPane key={'Favorite'} tab={'Favorite Movies'}>
+        <Tabs.TabPane key={'Favorite'} tab={'Favorite Movies'} className="favorite-tab">
           <MovieListPageTemplate
             movies={favorites}
             title={"Favorite Movies"}
-            action={movie => <AddReviewButton movie={movie}/>}
+            action={movie => <AddReviewButton movie={movie}  />}
           />
         </Tabs.TabPane>
-        <Tabs.TabPane key={'Watchlist'} tab={'Watchlist Movies'}>
+        <Tabs.TabPane key={'Watchlist'} tab={'Watchlist Movies'} className="watch-tab" style={{display: 'block'}}>
           <MovieListPageTemplate
             movies={watchlists}
             title={"Watchlist Movies"}
-            action={movie => <AddReviewButton movie={movie}/>}
+            action={movie => <AddReviewButton movie={movie} />}
           />
         </Tabs.TabPane>
       </Tabs>
