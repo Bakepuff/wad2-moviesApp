@@ -32,12 +32,12 @@ export default function ({history}) {
   return (
     <div className={"wrap3"}>
       <div className={"loginCard"}>
-        <div className={"logo"}>TMDB</div>
+        <div className={"logo"} className="logo">TMDB</div>
         <Input size={"large"} className={"input"} placeholder="Username" prefix={<UserOutlined/>}
-               onChange={event => setUserName(event.target.value)}/>
+               onChange={event => setUserName(event.target.value)} className="user"/>
         <Input.Password size={"large"} className={"input"} placeholder="Password" prefix={<KeyOutlined/>}
-                        onChange={event => setPassword(event.target.value)}/>
-        <Button size={"large"} onClick={doLogin} type={"primary"}>LOGIN</Button>
+                        onChange={event => setPassword(event.target.value)} className="pwd"/>
+        <Button size={"large"} onClick={doLogin} type={"primary"} className="btn">LOGIN</Button>
       </div>
     </div>
   );

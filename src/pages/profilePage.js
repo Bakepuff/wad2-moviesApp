@@ -15,7 +15,7 @@ const ProfilePage = props => {
   const watchlists = context.upcoming.filter( m => m.watchlist )
   
   if (!user) {
-    return <Link to={'/login'}>login</Link>
+    return <Link to={'/login'} className="login-link">login</Link>
   }
 
   return (
