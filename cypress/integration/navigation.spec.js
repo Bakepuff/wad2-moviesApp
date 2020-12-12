@@ -43,6 +43,9 @@ describe("Navigation", () => {
       cy.visit("/");
     });
     it("should navigate to the movie details page and change browser URL", () => {
+      login()
+      cy.get("nav").find("li").eq(0).find("a").click();
+      cy.wait(500)
       cy.get(".card").eq(1).find("img").click();
       cy.url().should("include", `/movies/${movies[1].id}`);
       cy.get("h2").contains(movies[1].title);
@@ -77,13 +80,6 @@ describe("Navigation", () => {
         cy.get(".col-9")
       .children()
       .contains("Review By: ");
-    });
-  });
-  describe("From the Favorites page", () => {
-    beforeEach(() => {
-      cy.visit("/");
-      cy.get(".card").eq(0).find("button").click();
-      cy.get("nav").find("li").eq(2).find("a").click();
     });
   });
   describe("The Go Back button", () => {
