@@ -12,6 +12,7 @@ const reducer = (state, action) => {
       };
     case "add-favorite":
       return {
+        ...state,
         movies: state.movies.map((m) =>
           m.id === action.payload.movie.id ? { ...m, favorite: true } : m
         ),
@@ -20,6 +21,7 @@ const reducer = (state, action) => {
       };
     case "add-watchlist":
       return {
+        ...state,
         upcoming: state.upcoming.map((m) =>
           m.id === action.payload.movie.id ? { ...m, watchlist: true } : m
         ),
@@ -27,13 +29,14 @@ const reducer = (state, action) => {
         top_rated: [...state.top_rated],
       };
     case "load":
-      return {movies: action.payload.movies, upcoming: [...state.upcoming], top_rated: [...state.top_rated]};
+      return {...state,movies: action.payload.movies, upcoming: [...state.upcoming], top_rated: [...state.top_rated]};
     case "load-upcoming":
-      return {upcoming: action.payload.movies, movies: [...state.movies], top_rated: [...state.top_rated]};
+      return {...state,upcoming: action.payload.movies, movies: [...state.movies], top_rated: [...state.top_rated]};
     case "load-top_rated":
-      return {top_rated: action.payload.movies, movies: [...state.movies], upcoming: [...state.upcoming]};
+      return {...state,top_rated: action.payload.movies, movies: [...state.movies], upcoming: [...state.upcoming]};
     case "add-review":
       return {
+        ...state,
         movies: state.movies.map((m) =>
           m.id === action.payload.movie.id
             ? {...m, review: action.payload.review}
@@ -48,7 +51,7 @@ const reducer = (state, action) => {
 };
 
 const MoviesContextProvider = (props) => {
-  const [state, dispatch] = useReducer(reducer, { movies: [], upcoming: [], top_rated: []});
+  const [state, dispatch] = useReducer(reducer, {user:undefined,movies: [], upcoming: [], top_rated: []});
 
   const addToFavorites = (movieId) => {
     const index = state.movies.map((m) => m.id).indexOf(movieId);
