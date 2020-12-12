@@ -30,10 +30,23 @@ describe('Watchlist page', () => {
         it('favorite should be left of watchlist', () => {
             cy.get('.favorite-tab').should('be.leftOf','.watch-tab')
         })
-        it('display the watchlist', () => {
-            cy.get('.watch-tab').click()
-        })
     })
 
+    describe(('upcoming'), () => {
 
+        it('should have favorite movies in watch list', ()=>{
+            cy.get("nav").find("li").eq(0).find("a").click();
+            cy.get(".card").eq(0).find("button").click();
+            cy.get("nav").find("li").eq(3).find("a").click();
+            cy.get('.card').should('have.length', 1)
+        })
+
+        it('should have upcoming movies in watch list', ()=>{
+            cy.get("nav").find("li").eq(1).find("a").click();
+            cy.get(".card").eq(0).find("button").click();
+            cy.get("nav").find("li").eq(3).find("a").click();
+            cy.get('.watch-tab').click()
+
+        })
+    })
 })
