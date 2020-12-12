@@ -43,6 +43,9 @@ describe("Navigation", () => {
       cy.visit("/");
     });
     it("should navigate to the movie details page and change browser URL", () => {
+      login()
+      cy.get("nav").find("li").eq(0).find("a").click();
+      cy.wait(500)
       cy.get(".card").eq(1).find("img").click();
       cy.url().should("include", `/movies/${movies[1].id}`);
       cy.get("h2").contains(movies[1].title);
@@ -60,32 +63,25 @@ describe("Navigation", () => {
       cy.get("h2").contains("No. Movies");
     });
   });
-  describe("From the Movie Details page ", () => {
-    beforeEach(() => {
-      cy.visit(`/movies/${movieId}`);
-    });
-    it("should change browser URL when show/hide reviews is clicked", () => {
-      cy.contains("Show Reviews").click();
-      cy.url().should("include", `/movies/${movieId}/reviews`);
-      cy.contains("Hide Reviews").click();
-      cy.url().should("not.include", `/movies/${movieId}/reviews`);
-    });
-    it("navigate to the full review page when a 'Full Review' link is clicked", () => {
-        cy.contains("Show Reviews").click();
-        cy.url().should("include", `/movies/${movieId}/reviews`);
-        cy.contains("Full Review").click();
-        cy.get(".col-9")
-      .children()
-      .contains("Review By: ");
-    });
-  });
-  describe("From the Favorites page", () => {
-    beforeEach(() => {
-      cy.visit("/");
-      cy.get(".card").eq(0).find("button").click();
-      cy.get("nav").find("li").eq(2).find("a").click();
-    });
-  });
+  // describe("From the Movie Details page ", () => {
+  //   beforeEach(() => {
+  //     cy.visit(`/movies/${movieId}`);
+  //   });
+  //   it("should change browser URL when show/hide reviews is clicked", () => {
+  //     cy.contains("Show Reviews").click();
+  //     cy.url().should("include", `/movies/${movieId}/reviews`);
+  //     cy.contains("Hide Reviews").click();
+  //     cy.url().should("not.include", `/movies/${movieId}/reviews`);
+  //   });
+  //   it("navigate to the full review page when a 'Full Review' link is clicked", () => {
+  //       cy.contains("Show Reviews").click();
+  //       cy.url().should("include", `/movies/${movieId}/reviews`);
+  //       cy.contains("Full Review").click();
+  //       cy.get(".col-9")
+  //     .children()
+  //     .contains("Review By: ");
+  //   });
+  // });
   describe("The Go Back button", () => {
     beforeEach(() => {
       cy.visit("/");
