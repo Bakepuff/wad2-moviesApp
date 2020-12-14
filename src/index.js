@@ -1,21 +1,22 @@
-import React from "react";
+import React,{lazy,Suspense} from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom"
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
-import HomePage from "./pages/homePage";
-import UpcomingMoviePage from "./pages/upcomingMoviePage";
-import LoginPage from './pages/loginPage'
-import MoviePage from './pages/movieDetailsPage'
-import FavoriteMoviesPage from './pages/favoritesMoviesPage'// NEW
-import WatchlistPage from './pages/WatchlistPage'  
-import MovieReviewPage from "./pages/movieReviewPage";
-import SiteHeader from './components/siteHeader'
 import MoviesContextProvider from "./contexts/moviesContext";
 import GenresContextProvider from "./contexts/genresContext";
-import AddMovieReviewPage from './pages/addMovieReviewPage'
-import Top_ratedMoviePage from "./pages/Top_ratedMoviePage";
-import ProfilePage from "./pages/profilePage";
-import CreditPage from './pages/creditPage'
+
+const HomePage = lazy(() =>import( "./pages/homePage"));
+const UpcomingMoviePage  = lazy(() =>import( "./pages/upcomingMoviePage"));
+const LoginPage  = lazy(() =>import( './pages/loginPage'))
+const MoviePage  = lazy(() =>import( './pages/movieDetailsPage'))
+const FavoriteMoviesPage  = lazy(() =>import( './pages/favoritesMoviesPage'))// NEW
+const WatchlistPage  = lazy(() =>import( './pages/WatchlistPage'  ))
+const MovieReviewPage  = lazy(() =>import( "./pages/movieReviewPage"));
+const SiteHeader  = lazy(() =>import( './components/siteHeader'))
+const AddMovieReviewPage  = lazy(() =>import( './pages/addMovieReviewPage'))
+const Top_ratedMoviePage  = lazy(() =>import( "./pages/Top_ratedMoviePage"));
+const ProfilePage  = lazy(() =>import( "./pages/profilePage"));
+const CreditPage  = lazy(() =>import( './pages/creditPage'))
 
 
 const App = () => {
@@ -48,4 +49,8 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <Suspense fallback={<h3>Loading...</h3>}>
+<App />
+</Suspense>, 
+document.getElementById("root"));
