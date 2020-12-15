@@ -112,3 +112,17 @@ export const login = (username, password) => {
       })
   }).then(res => res.json())
 };
+
+export const rateMovie = (movieId, value, sessionId) => {
+  return fetch(
+    `https://api.themoviedb.org/3/movie/${movieId}/rating?api_key=${process.env.REACT_APP_TMDB_KEY}&session_id=${sessionId}`
+    , {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        value
+      })
+    }).then(res => res.json())
+};

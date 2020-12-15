@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState,useContext} from "react";
 import { Link, Route, withRouter } from "react-router-dom";
 import MovieDetails from "../components/movieDetails";
 import PageTemplate from "../components/templateMoviePage";
@@ -7,12 +7,16 @@ import useMovie from "../hooks/useMovie";
 import MovieCasts from "../components/movieCasts"; 
 import {getMovieCredits} from '../api/tmdb-api'
 import SimilarMovies from "../components/similarMovies"; 
-
+import {rateMovie} from '../api/tmdb-api'
+import {message, Rate} from "antd";
+import {MoviesContext} from "../contexts/moviesContext";
+import 'antd/dist/antd.css'
 
 const MoviePage = props => {
   const { id } = props.match.params;
   const [movie] = useMovie(id)  
   const [casts,setCasts] = useState([])
+  const context = useContext(MoviesContext);
 
   useEffect(()=>{
     getMovieCredits(id).then(setCasts)
@@ -24,6 +28,22 @@ const MoviePage = props => {
       <>
         <PageTemplate movie={movie}>
           <MovieDetails movie={movie} />
+          <div className='rate'>
+            Rate: <Rate defaultValue={5} allowHalf count={10} onChange={value => {
+            if (!context.user) {
+              message.warn('please login')
+              props.history.push('/login')
+              return
+            }
+            rateMovie(movie.id, value, context.user.sessionId).then(res => {
+              if (res.success) {
+                message.success('rate success')
+              } else {
+                message.error(res.status_message)
+              }
+            })
+          }}/>
+          </div>
         </PageTemplate>
         <MovieCasts casts={casts}/>
         <SimilarMovies movieId={id}/>
