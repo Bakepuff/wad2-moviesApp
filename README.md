@@ -116,6 +116,9 @@ Name: TanShi
 ![][LoginLink]
 > Clicking the login will lead to login page.
 
+![][rate]
+> Clicking the star will rate the movie and get a message.
+
 
 
 
@@ -205,3 +208,4 @@ List reference material links (articles/blogs).
 [WatchlistLink]: ./public/watchlistLink.png
 [LoginLink]: ./public/loginLink.png
 [components]: ./public/components.png
+[rate]:./public/rate.png
