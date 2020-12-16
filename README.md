@@ -25,10 +25,6 @@ Name: TanShi
 
 ..... List the additional TMDB endpoints used in your assignment, e.g.
 
-+ https://api.themoviedb.org/3/movie/${id} - get detailed information on a specific movie. 
-+ https://api.themoviedb.org/3/genre/movie/list - get a list of movie genres
-+ https://api.themoviedb.org/3/movie/${id}/reviews - get the user reviews for a movie. 
-+ https://api.themoviedb.org/3/movie/upcoming - get a list of upcoming movies in theatres.
 + https://api.themoviedb.org/3/movie/top_rated - get the top rated movies on TMDb.
 + https://api.themoviedb.org/3/movie/${movieId}/credits - get the cast and crew for a movie.
 + https://api.themoviedb.org/3/credit/${creditId} - get a movie or TV credit details by id.
@@ -59,7 +55,7 @@ Name: TanShi
 >Shows the login interface.
 
 ![][profile]
->show the user's personal information and favorites, the watchlist. 
+>show the user's name and favorites, the watchlist. 
 
 ![][cast]
 >Shows the information of an actor. 
@@ -81,9 +77,7 @@ Name: TanShi
 ...... Insert a list of the additional routes supported by your Movies Fan app. If relevant, specify which of the routes require authentication, i.e. protected/private.
 
 
-+ /reviews/:id (public) - displays the full text of a movie review.
-+ /reviews/form (public) - displays the review form.
-+ /movies/upcoming (public) - displays upcoming movies.
+
 + /movies/top_rated (public) - displays top-rated movies.
 + /movies/:id (public) - displays details information of movies.
 + /credit/:id (public) - displays information of credits.
@@ -143,7 +137,7 @@ Name: TanShi
 [Document each new feature/page in your Movies Fan app, including: Feature Name; Its objective/purpose; The associated test file; a screenshot of its UI.]
 e,g,
  
-+ Movie Details page - Shows the details about a movie. The Show reviews button reveals an excerpt for each critic review of the movie.
++ Movie Details page - Shows the details about a movie. The Show reviews button reveals an excerpt for each critic review of the movie.There are casts section and similar movie section below.
 
 Tests: cypress/integration/movieDetails.spec.js 
 
@@ -183,7 +177,7 @@ Cypress Dashboard URL:  https://dashboard.cypress.io/projects/u4oi39/runs?branch
 
 [State briefly each instances of boundary and/or error/exceptional test case in your project]
 e.g.
-
+cypress/integration/login.spec.js - test when the account or the password is wrong.
 
 
 ## Independent learning (If relevant).
@@ -210,4 +204,4 @@ List reference material links (articles/blogs).
 [FavoriteMoviesLink]: ./public/favoriteLink.png
 [WatchlistLink]: ./public/watchlistLink.png
 [LoginLink]: ./public/loginLink.png
-[components]: ./public/loginLink.png
+[components]: ./public/components.png
