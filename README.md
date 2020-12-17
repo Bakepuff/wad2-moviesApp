@@ -125,9 +125,19 @@ Name: TanShi
 ## Independent learning (If relevant).
 
 . . . . . Briefly mention each technologies/techniques used in your project codebase that were not covered in the lectures/labs. Provide source code filename references to support your assertions and include reference material links (articles/blogs).
-+ https://ant.design/ - Ant Design React UI framework.
-+ https://blog.csdn.net/deft_mkjing/article/details/53762277 - session and token
-+ https://stackoverflow.com/questions/45372791/how-to-perfrom-webapi-post-call-from-react-js - web api POST
+
++ Ant Design React UI framework.- https://ant.design/
+ ./src/components/login/index.js
+ ./src/components/buttons/addToFavorites.js
+ ./src/components/buttons/addToWatchlist.js
+ ./src/pages/movieDetailsPage.js
+ ./src/pages/profilePage.js
+
++ session and token - https://blog.csdn.net/deft_mkjing/article/details/53762277 
+./src/api/tmdb-api.js
+
++ web api POST - https://stackoverflow.com/questions/45372791/how-to-perfrom-webapi-post-call-from-react-js
+./src/api/tmdb-api.js
 
 ---------------------------------
 
@@ -190,7 +200,10 @@ cypress/integration/login.spec.js - test when the account or the password is wro
 List reference material links (articles/blogs).
 
 + Layout Inspector-https://www.npmjs.com/package/cypress-layout-inspector.
+![][layout]
 + Bunding and code-splitting
+![][codesplitting]
+
 ---------------------------------
 
 [movieDetail]: ./public/movieDetail.png
@@ -209,3 +222,5 @@ List reference material links (articles/blogs).
 [LoginLink]: ./public/loginLink.png
 [components]: ./public/components.png
 [rate]:./public/rate.png
+[layout]:./public/layout.png
+[codesplitting]:./public/codesplitting.png
